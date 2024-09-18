@@ -1,0 +1,262 @@
+<html><head><title>Image t-SNE Visualization</title></head>
+<style>
+
+            .container { position: relative; }
+            img { position: absolute; width: 50px; height: 50px; }
+            .tooltip {
+                position: absolute;
+                background-color: #333;
+                color: #fff;
+                padding: 5px;
+                border-radius: 5px;
+                font-size: 12px;
+                visibility: hidden;
+                z-index: 10;
+            }
+            img:hover + .tooltip {
+                visibility: visible;
+            }
+        </style>
+<body>
+<div class="container">
+<img src="images/2_1_8.png" style="left:595.0742244720459px;top:496.0991859436035px;">
+<div class="tooltip" style="left:655.0742244720459px;top:496.0991859436035px;">Tags: cigarette, girl</div>
+<img src="images/1_0_8.png" style="left:340.4341459274292px;top:737.9586219787598px;">
+<div class="tooltip" style="left:400.4341459274292px;top:737.9586219787598px;">Tags: barbie, boy</div>
+<img src="images/1_0_9.png" style="left:593.7610149383545px;top:39.99878168106079px;">
+<div class="tooltip" style="left:653.7610149383545px;top:39.99878168106079px;">Tags: barbie, boy</div>
+<img src="images/2_1_9.png" style="left:672.5091457366943px;top:229.1130781173706px;">
+<div class="tooltip" style="left:732.5091457366943px;top:229.1130781173706px;">Tags: cigarette, girl</div>
+<img src="images/2_3_9.png" style="left:677.8538703918457px;top:175.8279800415039px;">
+<div class="tooltip" style="left:737.8538703918457px;top:175.8279800415039px;">Tags: cigarette, female</div>
+<img src="images/1_2_9.png" style="left:598.0632781982422px;top:17.323634028434753px;">
+<div class="tooltip" style="left:658.0632781982422px;top:17.323634028434753px;">Tags: barbie, male</div>
+<img src="images/1_2_8.png" style="left:206.98132514953613px;top:744.5125579833984px;">
+<div class="tooltip" style="left:266.98132514953613px;top:744.5125579833984px;">Tags: barbie, male</div>
+<img src="images/2_3_8.png" style="left:628.5349369049072px;top:471.7500686645508px;">
+<div class="tooltip" style="left:688.5349369049072px;top:471.7500686645508px;">Tags: cigarette, female</div>
+<img src="images/2_5_9.png" style="left:676.4301300048828px;top:166.70244932174683px;">
+<div class="tooltip" style="left:736.4301300048828px;top:166.70244932174683px;">Tags: cigarette, woman</div>
+<img src="images/1_4_9.png" style="left:565.53955078125px;top:11.023090779781342px;">
+<div class="tooltip" style="left:625.53955078125px;top:11.023090779781342px;">Tags: barbie, man</div>
+<img src="images/1_4_8.png" style="left:416.53785705566406px;top:742.2021865844727px;">
+<div class="tooltip" style="left:476.53785705566406px;top:742.2021865844727px;">Tags: barbie, man</div>
+<img src="images/2_5_8.png" style="left:632.8707695007324px;top:467.61927604675293px;">
+<div class="tooltip" style="left:692.8707695007324px;top:467.61927604675293px;">Tags: cigarette, woman</div>
+<img src="images/2_2_9.png" style="left:712.149715423584px;top:124.62513446807861px;">
+<div class="tooltip" style="left:772.149715423584px;top:124.62513446807861px;">Tags: cigarette, male</div>
+<img src="images/1_3_9.png" style="left:567.8923606872559px;top:117.64556169509888px;">
+<div class="tooltip" style="left:627.8923606872559px;top:117.64556169509888px;">Tags: barbie, female</div>
+<img src="images/1_3_8.png" style="left:246.43969535827637px;top:738.9603614807129px;">
+<div class="tooltip" style="left:306.43969535827637px;top:738.9603614807129px;">Tags: barbie, female</div>
+<img src="images/2_2_8.png" style="left:583.6304664611816px;top:526.9714832305908px;">
+<div class="tooltip" style="left:643.6304664611816px;top:526.9714832305908px;">Tags: cigarette, male</div>
+<img src="images/2_0_8.png" style="left:629.688310623169px;top:524.8614311218262px;">
+<div class="tooltip" style="left:689.688310623169px;top:524.8614311218262px;">Tags: cigarette, boy</div>
+<img src="images/1_1_8.png" style="left:389.8645877838135px;top:722.0117092132568px;">
+<div class="tooltip" style="left:449.8645877838135px;top:722.0117092132568px;">Tags: barbie, girl</div>
+<img src="images/1_1_9.png" style="left:555.6318283081055px;top:0.0px;">
+<div class="tooltip" style="left:615.6318283081055px;top:0.0px;">Tags: barbie, girl</div>
+<img src="images/2_0_9.png" style="left:719.727087020874px;top:167.53368377685547px;">
+<div class="tooltip" style="left:779.727087020874px;top:167.53368377685547px;">Tags: cigarette, boy</div>
+<img src="images/2_4_9.png" style="left:716.1417007446289px;top:128.60971689224243px;">
+<div class="tooltip" style="left:776.1417007446289px;top:128.60971689224243px;">Tags: cigarette, man</div>
+<img src="images/1_5_9.png" style="left:571.2380409240723px;top:112.71178722381592px;">
+<div class="tooltip" style="left:631.2380409240723px;top:112.71178722381592px;">Tags: barbie, woman</div>
+<img src="images/1_5_8.png" style="left:287.49847412109375px;top:750.0px;">
+<div class="tooltip" style="left:347.49847412109375px;top:750.0px;">Tags: barbie, woman</div>
+<img src="images/2_4_8.png" style="left:600.1245021820068px;top:533.5020065307617px;">
+<div class="tooltip" style="left:660.1245021820068px;top:533.5020065307617px;">Tags: cigarette, man</div>
+<img src="images/2_4_6.png" style="left:77.3516833782196px;top:492.25687980651855px;">
+<div class="tooltip" style="left:137.3516833782196px;top:492.25687980651855px;">Tags: cigarette, man</div>
+<img src="images/1_5_6.png" style="left:485.1341724395752px;top:677.8280258178711px;">
+<div class="tooltip" style="left:545.1341724395752px;top:677.8280258178711px;">Tags: barbie, woman</div>
+<img src="images/2_2_0.png" style="left:10.909577459096909px;top:374.69141483306885px;">
+<div class="tooltip" style="left:70.90957745909691px;top:374.69141483306885px;">Tags: cigarette, male</div>
+<img src="images/1_3_0.png" style="left:149.31132793426514px;top:356.50641918182373px;">
+<div class="tooltip" style="left:209.31132793426514px;top:356.50641918182373px;">Tags: barbie, female</div>
+<img src="images/2_0_2.png" style="left:136.14134788513184px;top:489.12010192871094px;">
+<div class="tooltip" style="left:196.14134788513184px;top:489.12010192871094px;">Tags: cigarette, boy</div>
+<img src="images/1_1_2.png" style="left:49.145641922950745px;top:607.0162773132324px;">
+<div class="tooltip" style="left:109.14564192295074px;top:607.0162773132324px;">Tags: barbie, girl</div>
+<img src="images/1_1_3.png" style="left:378.71172428131104px;top:654.8375129699707px;">
+<div class="tooltip" style="left:438.71172428131104px;top:654.8375129699707px;">Tags: barbie, girl</div>
+<img src="images/2_0_3.png" style="left:232.1082353591919px;top:672.5567817687988px;">
+<div class="tooltip" style="left:292.1082353591919px;top:672.5567817687988px;">Tags: cigarette, boy</div>
+<img src="images/1_3_1.png" style="left:405.15193939208984px;top:429.4166088104248px;">
+<div class="tooltip" style="left:465.15193939208984px;top:429.4166088104248px;">Tags: barbie, female</div>
+<img src="images/2_2_1.png" style="left:732.8892230987549px;top:392.4341678619385px;">
+<div class="tooltip" style="left:792.8892230987549px;top:392.4341678619385px;">Tags: cigarette, male</div>
+<img src="images/1_5_7.png" style="left:437.18175888061523px;top:330.50904273986816px;">
+<div class="tooltip" style="left:497.18175888061523px;top:330.50904273986816px;">Tags: barbie, woman</div>
+<img src="images/2_4_7.png" style="left:526.0737895965576px;top:246.02689743041992px;">
+<div class="tooltip" style="left:586.0737895965576px;top:246.02689743041992px;">Tags: cigarette, man</div>
+<img src="images/2_4_5.png" style="left:291.0688638687134px;top:204.14326190948486px;">
+<div class="tooltip" style="left:351.0688638687134px;top:204.14326190948486px;">Tags: cigarette, man</div>
+<img src="images/1_5_5.png" style="left:253.8041591644287px;top:464.10412788391113px;">
+<div class="tooltip" style="left:313.8041591644287px;top:464.10412788391113px;">Tags: barbie, woman</div>
+<img src="images/2_2_3.png" style="left:212.97290325164795px;top:658.5758209228516px;">
+<div class="tooltip" style="left:272.97290325164795px;top:658.5758209228516px;">Tags: cigarette, male</div>
+<img src="images/1_3_3.png" style="left:318.8271999359131px;top:701.4856338500977px;">
+<div class="tooltip" style="left:378.8271999359131px;top:701.4856338500977px;">Tags: barbie, female</div>
+<img src="images/2_0_1.png" style="left:652.257490158081px;top:382.85350799560547px;">
+<div class="tooltip" style="left:712.257490158081px;top:382.85350799560547px;">Tags: cigarette, boy</div>
+<img src="images/1_1_1.png" style="left:370.07431983947754px;top:451.2742519378662px;">
+<div class="tooltip" style="left:430.07431983947754px;top:451.2742519378662px;">Tags: barbie, girl</div>
+<img src="images/1_1_0.png" style="left:150.23268461227417px;top:319.1365718841553px;">
+<div class="tooltip" style="left:210.23268461227417px;top:319.1365718841553px;">Tags: barbie, girl</div>
+<img src="images/2_0_0.png" style="left:0.0px;top:428.89509201049805px;">
+<div class="tooltip" style="left:60.0px;top:428.89509201049805px;">Tags: cigarette, boy</div>
+<img src="images/1_3_2.png" style="left:28.442490100860596px;top:625.4656314849854px;">
+<div class="tooltip" style="left:88.4424901008606px;top:625.4656314849854px;">Tags: barbie, female</div>
+<img src="images/2_2_2.png" style="left:366.31929874420166px;top:173.8093614578247px;">
+<div class="tooltip" style="left:426.31929874420166px;top:173.8093614578247px;">Tags: cigarette, male</div>
+<img src="images/1_5_4.png" style="left:257.6234817504883px;top:594.9225425720215px;">
+<div class="tooltip" style="left:317.6234817504883px;top:594.9225425720215px;">Tags: barbie, woman</div>
+<img src="images/2_4_4.png" style="left:291.96929931640625px;top:36.22190058231354px;">
+<div class="tooltip" style="left:351.96929931640625px;top:36.22190058231354px;">Tags: cigarette, man</div>
+<img src="images/2_4_0.png" style="left:14.787226915359497px;top:356.98533058166504px;">
+<div class="tooltip" style="left:74.7872269153595px;top:356.98533058166504px;">Tags: cigarette, man</div>
+<img src="images/1_5_0.png" style="left:149.43764209747314px;top:330.7973861694336px;">
+<div class="tooltip" style="left:209.43764209747314px;top:330.7973861694336px;">Tags: barbie, woman</div>
+<img src="images/2_2_6.png" style="left:124.6516466140747px;top:563.6487007141113px;">
+<div class="tooltip" style="left:184.6516466140747px;top:563.6487007141113px;">Tags: cigarette, male</div>
+<img src="images/1_3_6.png" style="left:314.51025009155273px;top:649.4102001190186px;">
+<div class="tooltip" style="left:374.51025009155273px;top:649.4102001190186px;">Tags: barbie, female</div>
+<img src="images/2_0_4.png" style="left:297.63050079345703px;top:382.1739673614502px;">
+<div class="tooltip" style="left:357.63050079345703px;top:382.1739673614502px;">Tags: cigarette, boy</div>
+<img src="images/1_1_4.png" style="left:346.1873769760132px;top:579.5686721801758px;">
+<div class="tooltip" style="left:406.1873769760132px;top:579.5686721801758px;">Tags: barbie, girl</div>
+<img src="images/1_1_5.png" style="left:277.70659923553467px;top:455.10597229003906px;">
+<div class="tooltip" style="left:337.70659923553467px;top:455.10597229003906px;">Tags: barbie, girl</div>
+<img src="images/2_0_5.png" style="left:263.045597076416px;top:295.8224296569824px;">
+<div class="tooltip" style="left:323.045597076416px;top:295.8224296569824px;">Tags: cigarette, boy</div>
+<img src="images/1_3_7.png" style="left:459.0513229370117px;top:325.99096298217773px;">
+<div class="tooltip" style="left:519.0513229370117px;top:325.99096298217773px;">Tags: barbie, female</div>
+<img src="images/2_2_7.png" style="left:546.4480400085449px;top:236.49580478668213px;">
+<div class="tooltip" style="left:606.4480400085449px;top:236.49580478668213px;">Tags: cigarette, male</div>
+<img src="images/1_5_1.png" style="left:379.7214984893799px;top:433.6214542388916px;">
+<div class="tooltip" style="left:439.7214984893799px;top:433.6214542388916px;">Tags: barbie, woman</div>
+<img src="images/2_4_1.png" style="left:750.0px;top:382.67741203308105px;">
+<div class="tooltip" style="left:810.0px;top:382.67741203308105px;">Tags: cigarette, man</div>
+<img src="images/2_4_3.png" style="left:233.83958339691162px;top:644.3258762359619px;">
+<div class="tooltip" style="left:293.8395833969116px;top:644.3258762359619px;">Tags: cigarette, man</div>
+<img src="images/1_5_3.png" style="left:317.4334764480591px;top:692.5163745880127px;">
+<div class="tooltip" style="left:377.4334764480591px;top:692.5163745880127px;">Tags: barbie, woman</div>
+<img src="images/2_2_5.png" style="left:243.788743019104px;top:264.4786596298218px;">
+<div class="tooltip" style="left:303.788743019104px;top:264.4786596298218px;">Tags: cigarette, male</div>
+<img src="images/1_3_5.png" style="left:232.91847705841064px;top:470.4899311065674px;">
+<div class="tooltip" style="left:292.91847705841064px;top:470.4899311065674px;">Tags: barbie, female</div>
+<img src="images/2_0_7.png" style="left:579.2412757873535px;top:228.84786128997803px;">
+<div class="tooltip" style="left:639.2412757873535px;top:228.84786128997803px;">Tags: cigarette, boy</div>
+<img src="images/1_1_7.png" style="left:412.30382919311523px;top:356.03907108306885px;">
+<div class="tooltip" style="left:472.30382919311523px;top:356.03907108306885px;">Tags: barbie, girl</div>
+<img src="images/1_1_6.png" style="left:488.5817527770996px;top:691.3470268249512px;">
+<div class="tooltip" style="left:548.5817527770996px;top:691.3470268249512px;">Tags: barbie, girl</div>
+<img src="images/2_0_6.png" style="left:89.8246169090271px;top:485.6353759765625px;">
+<div class="tooltip" style="left:149.8246169090271px;top:485.6353759765625px;">Tags: cigarette, boy</div>
+<img src="images/1_3_4.png" style="left:228.37066650390625px;top:552.5382041931152px;">
+<div class="tooltip" style="left:288.37066650390625px;top:552.5382041931152px;">Tags: barbie, female</div>
+<img src="images/2_2_4.png" style="left:266.17116928100586px;top:118.16266775131226px;">
+<div class="tooltip" style="left:326.17116928100586px;top:118.16266775131226px;">Tags: cigarette, male</div>
+<img src="images/1_5_2.png" style="left:52.2640585899353px;top:632.5920581817627px;">
+<div class="tooltip" style="left:112.2640585899353px;top:632.5920581817627px;">Tags: barbie, woman</div>
+<img src="images/2_4_2.png" style="left:375.3760099411011px;top:144.38105821609497px;">
+<div class="tooltip" style="left:435.3760099411011px;top:144.38105821609497px;">Tags: cigarette, man</div>
+<img src="images/2_1_1.png" style="left:704.0981292724609px;top:354.0956974029541px;">
+<div class="tooltip" style="left:764.0981292724609px;top:354.0956974029541px;">Tags: cigarette, girl</div>
+<img src="images/1_0_1.png" style="left:518.5900688171387px;top:444.9699878692627px;">
+<div class="tooltip" style="left:578.5900688171387px;top:444.9699878692627px;">Tags: barbie, boy</div>
+<img src="images/2_3_3.png" style="left:412.9378318786621px;top:527.4291038513184px;">
+<div class="tooltip" style="left:472.9378318786621px;top:527.4291038513184px;">Tags: cigarette, female</div>
+<img src="images/1_2_3.png" style="left:465.208101272583px;top:589.2722606658936px;">
+<div class="tooltip" style="left:525.208101272583px;top:589.2722606658936px;">Tags: barbie, male</div>
+<img src="images/2_5_5.png" style="left:303.3925771713257px;top:233.38220119476318px;">
+<div class="tooltip" style="left:363.3925771713257px;top:233.38220119476318px;">Tags: cigarette, woman</div>
+<img src="images/1_4_5.png" style="left:221.13585472106934px;top:418.0718421936035px;">
+<div class="tooltip" style="left:281.13585472106934px;top:418.0718421936035px;">Tags: barbie, man</div>
+<img src="images/1_4_4.png" style="left:481.23536109924316px;top:518.6481952667236px;">
+<div class="tooltip" style="left:541.2353610992432px;top:518.6481952667236px;">Tags: barbie, man</div>
+<img src="images/2_5_4.png" style="left:298.72119426727295px;top:77.39952802658081px;">
+<div class="tooltip" style="left:358.72119426727295px;top:77.39952802658081px;">Tags: cigarette, woman</div>
+<img src="images/1_2_2.png" style="left:9.005707502365112px;top:586.643123626709px;">
+<div class="tooltip" style="left:69.00570750236511px;top:586.643123626709px;">Tags: barbie, male</div>
+<img src="images/2_3_2.png" style="left:407.19404220581055px;top:94.70012784004211px;">
+<div class="tooltip" style="left:467.19404220581055px;top:94.70012784004211px;">Tags: cigarette, female</div>
+<img src="images/1_0_0.png" style="left:118.71601343154907px;top:275.6065845489502px;">
+<div class="tooltip" style="left:178.71601343154907px;top:275.6065845489502px;">Tags: barbie, boy</div>
+<img src="images/2_1_0.png" style="left:66.37909412384033px;top:395.83208560943604px;">
+<div class="tooltip" style="left:126.37909412384033px;top:395.83208560943604px;">Tags: cigarette, girl</div>
+<img src="images/2_1_2.png" style="left:356.31301403045654px;top:83.00105333328247px;">
+<div class="tooltip" style="left:416.31301403045654px;top:83.00105333328247px;">Tags: cigarette, girl</div>
+<img src="images/1_0_2.png" style="left:19.58341896533966px;top:570.9334850311279px;">
+<div class="tooltip" style="left:79.58341896533966px;top:570.9334850311279px;">Tags: barbie, boy</div>
+<img src="images/2_3_0.png" style="left:52.34477519989014px;top:407.5252056121826px;">
+<div class="tooltip" style="left:112.34477519989014px;top:407.5252056121826px;">Tags: cigarette, female</div>
+<img src="images/1_2_0.png" style="left:151.3783097267151px;top:656.9184303283691px;">
+<div class="tooltip" style="left:211.3783097267151px;top:656.9184303283691px;">Tags: barbie, male</div>
+<img src="images/2_5_6.png" style="left:174.14695024490356px;top:158.57301950454712px;">
+<div class="tooltip" style="left:234.14695024490356px;top:158.57301950454712px;">Tags: cigarette, woman</div>
+<img src="images/1_4_6.png" style="left:532.2368144989014px;top:647.4079132080078px;">
+<div class="tooltip" style="left:592.2368144989014px;top:647.4079132080078px;">Tags: barbie, man</div>
+<img src="images/1_4_7.png" style="left:412.13083267211914px;top:325.56116580963135px;">
+<div class="tooltip" style="left:472.13083267211914px;top:325.56116580963135px;">Tags: barbie, man</div>
+<img src="images/2_5_7.png" style="left:554.6807289123535px;top:310.5444669723511px;">
+<div class="tooltip" style="left:614.6807289123535px;top:310.5444669723511px;">Tags: cigarette, woman</div>
+<img src="images/1_2_1.png" style="left:442.26512908935547px;top:437.8600597381592px;">
+<div class="tooltip" style="left:502.26512908935547px;top:437.8600597381592px;">Tags: barbie, male</div>
+<img src="images/2_3_1.png" style="left:688.9703273773193px;top:398.3912229537964px;">
+<div class="tooltip" style="left:748.9703273773193px;top:398.3912229537964px;">Tags: cigarette, female</div>
+<img src="images/1_0_3.png" style="left:432.74450302124023px;top:616.0097122192383px;">
+<div class="tooltip" style="left:492.74450302124023px;top:616.0097122192383px;">Tags: barbie, boy</div>
+<img src="images/2_1_3.png" style="left:436.8192195892334px;top:681.466007232666px;">
+<div class="tooltip" style="left:496.8192195892334px;top:681.466007232666px;">Tags: cigarette, girl</div>
+<img src="images/2_1_7.png" style="left:543.1375980377197px;top:290.4885768890381px;">
+<div class="tooltip" style="left:603.1375980377197px;top:290.4885768890381px;">Tags: cigarette, girl</div>
+<img src="images/1_0_7.png" style="left:422.3360061645508px;top:277.4410009384155px;">
+<div class="tooltip" style="left:482.3360061645508px;top:277.4410009384155px;">Tags: barbie, boy</div>
+<img src="images/2_3_5.png" style="left:289.8562431335449px;top:252.6904582977295px;">
+<div class="tooltip" style="left:349.8562431335449px;top:252.6904582977295px;">Tags: cigarette, female</div>
+<img src="images/1_2_5.png" style="left:213.67566585540771px;top:503.6397457122803px;">
+<div class="tooltip" style="left:273.6756658554077px;top:503.6397457122803px;">Tags: barbie, male</div>
+<img src="images/2_5_3.png" style="left:426.7498970031738px;top:521.6900825500488px;">
+<div class="tooltip" style="left:486.7498970031738px;top:521.6900825500488px;">Tags: cigarette, woman</div>
+<img src="images/1_4_3.png" style="left:463.7573719024658px;top:594.1713809967041px;">
+<div class="tooltip" style="left:523.7573719024658px;top:594.1713809967041px;">Tags: barbie, man</div>
+<img src="images/1_4_2.png" style="left:73.15192222595215px;top:612.5636100769043px;">
+<div class="tooltip" style="left:133.15192222595215px;top:612.5636100769043px;">Tags: barbie, man</div>
+<img src="images/2_5_2.png" style="left:400.3575325012207px;top:98.8513708114624px;">
+<div class="tooltip" style="left:460.3575325012207px;top:98.8513708114624px;">Tags: cigarette, woman</div>
+<img src="images/1_2_4.png" style="left:261.0764265060425px;top:558.0112457275391px;">
+<div class="tooltip" style="left:321.0764265060425px;top:558.0112457275391px;">Tags: barbie, male</div>
+<img src="images/2_3_4.png" style="left:280.0234079360962px;top:84.60999727249146px;">
+<div class="tooltip" style="left:340.0234079360962px;top:84.60999727249146px;">Tags: cigarette, female</div>
+<img src="images/1_0_6.png" style="left:511.52782440185547px;top:708.1965923309326px;">
+<div class="tooltip" style="left:571.5278244018555px;top:708.1965923309326px;">Tags: barbie, boy</div>
+<img src="images/2_1_6.png" style="left:199.2003321647644px;top:608.9559555053711px;">
+<div class="tooltip" style="left:259.2003321647644px;top:608.9559555053711px;">Tags: cigarette, girl</div>
+<img src="images/2_1_4.png" style="left:298.5929489135742px;top:93.40687990188599px;">
+<div class="tooltip" style="left:358.5929489135742px;top:93.40687990188599px;">Tags: cigarette, girl</div>
+<img src="images/1_0_4.png" style="left:323.8630771636963px;top:578.7606716156006px;">
+<div class="tooltip" style="left:383.8630771636963px;top:578.7606716156006px;">Tags: barbie, boy</div>
+<img src="images/2_3_6.png" style="left:168.22245121002197px;top:161.93912029266357px;">
+<div class="tooltip" style="left:228.22245121002197px;top:161.93912029266357px;">Tags: cigarette, female</div>
+<img src="images/1_2_6.png" style="left:526.1825084686279px;top:672.265100479126px;">
+<div class="tooltip" style="left:586.1825084686279px;top:672.265100479126px;">Tags: barbie, male</div>
+<img src="images/2_5_0.png" style="left:66.42937064170837px;top:384.6440076828003px;">
+<div class="tooltip" style="left:126.42937064170837px;top:384.6440076828003px;">Tags: cigarette, woman</div>
+<img src="images/1_4_0.png" style="left:114.8207426071167px;top:262.58697509765625px;">
+<div class="tooltip" style="left:174.8207426071167px;top:262.58697509765625px;">Tags: barbie, man</div>
+<img src="images/1_4_1.png" style="left:461.8997573852539px;top:435.73241233825684px;">
+<div class="tooltip" style="left:521.8997573852539px;top:435.73241233825684px;">Tags: barbie, man</div>
+<img src="images/2_5_1.png" style="left:698.8739013671875px;top:373.513126373291px;">
+<div class="tooltip" style="left:758.8739013671875px;top:373.513126373291px;">Tags: cigarette, woman</div>
+<img src="images/1_2_7.png" style="left:431.95128440856934px;top:277.2563934326172px;">
+<div class="tooltip" style="left:491.95128440856934px;top:277.2563934326172px;">Tags: barbie, male</div>
+<img src="images/2_3_7.png" style="left:555.9025287628174px;top:326.5987157821655px;">
+<div class="tooltip" style="left:615.9025287628174px;top:326.5987157821655px;">Tags: cigarette, female</div>
+<img src="images/1_0_5.png" style="left:262.83888816833496px;top:508.89673233032227px;">
+<div class="tooltip" style="left:322.83888816833496px;top:508.89673233032227px;">Tags: barbie, boy</div>
+<img src="images/2_1_5.png" style="left:327.0867586135864px;top:345.61736583709717px;">
+<div class="tooltip" style="left:387.0867586135864px;top:345.61736583709717px;">Tags: cigarette, girl</div>
+</div></body></html>
