@@ -1,9 +1,7 @@
-import os
 import torch
 import numpy as np
 from torchvision import models, transforms
 from sklearn.manifold import TSNE
-import matplotlib.pyplot as plt
 
 # custom module
 import data_loader
@@ -14,7 +12,7 @@ import tag
 
 
 # Function to extract features using VGG19 in PyTorch
-def extract_features(images, model, device):
+def extract_features(images, model):
     model.eval()
     features = []
     with torch.no_grad():
@@ -41,9 +39,7 @@ def apply_tsne(features):
 
 
 # Function to generate HTML to visualize the images
-def generate_html(
-    image_names, tsne_results, output_file="output.html", img_dir="images"
-):
+def generate_html(image_names, tsne_results, output_file="output.html"):
     image_tags = tag.generate_image_tag()
 
     with open(output_file, "w") as f:
@@ -110,7 +106,7 @@ def main(image_directory, output_html="output.html"):
 
     # Step 2: Extract VGG19 features
     print("Extracting features using VGG19...")
-    features = extract_features(images, vgg19_model, device)
+    features = extract_features(images, vgg19_model)
 
     # Step 3: Apply t-SNE for dimensionality reduction
     print("Applying t-SNE...")
@@ -118,9 +114,7 @@ def main(image_directory, output_html="output.html"):
 
     # Step 4: Generate HTML to visualize the images
     print("Generating HTML...")
-    generate_html(
-        image_names, tsne_results, output_file=output_html, img_dir=image_directory
-    )
+    generate_html(image_names, tsne_results, output_file=output_html)
     print(f"HTML visualization saved to {output_html}")
 
 
