@@ -1,12 +1,13 @@
 import torch
 import numpy as np
-from torchvision import models, transforms
+from torchvision import models
+from torchvision.transforms import v2
 from sklearn.manifold import TSNE
 
 # custom module
 import data_loader
 import tag
-
+import kmeans
 
 # Define a function to load images from a directory
 
@@ -87,14 +88,14 @@ def main(image_directory, output_html="output.html"):
     print("Loading VGG19 model...")
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     vgg19_model = models.vgg19().features.to(device)
-
     # Define the image transform (resize, normalize)
-    transform = transforms.Compose(
+    transform = v2.Compose(
         [
-            transforms.Resize((224, 224)),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[
-                                 0.229, 0.224, 0.225]),
+            v2.Resize((224, 224)),
+            v2.ToImage(),
+            v2.ToDtype(torch.float32, scale=True),
+            v2.Normalize(mean=[0.485, 0.456, 0.406],
+                         std=[0.229, 0.224, 0.225]),
         ]
     )
 
@@ -108,17 +109,28 @@ def main(image_directory, output_html="output.html"):
     print("Extracting features using VGG19...")
     features = extract_features(images, vgg19_model)
 
-    # Step 3: Apply t-SNE for dimensionality reduction
+    n_clusters = 12
+    print(f"Applying K-Means clustering with {n_clusters} clusters...")
+    cluster_labels = kmeans.apply_kmeans(features, n_clusters=n_clusters)
+
     print("Applying t-SNE...")
     tsne_results = apply_tsne(features)
 
     # Step 4: Generate HTML to visualize the images
     print("Generating HTML...")
-    generate_html(image_names, tsne_results, output_file=output_html)
+    # generate_html(image_names, tsne_results, output_file=output_html)
+    kmeans.generate_html_with_kmeans(
+        image_names,
+        tsne_results,
+        cluster_labels,
+        output_file=output_html,
+        img_dir=image_directory,
+    )
+
     print(f"HTML visualization saved to {output_html}")
 
 
 # Run the main function with the directory containing images
 if __name__ == "__main__":
     image_directory = "images"  # Replace with your directory
-    main(image_directory, output_html="tsne_visualization.html")
+    main(image_directory, output_html="kmeans_visualization.html")
