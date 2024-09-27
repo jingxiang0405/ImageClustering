@@ -31,10 +31,9 @@ def generate_html_with_kmeans(
         f.write('<div class="container">\n')
 
         for i, name in enumerate(image_names):
-            x = tsne_results[i, 0] * 50  # 調整縮放因子
-            y = tsne_results[i, 1] * 50  # 調整縮放因子
+            x = tsne_results[i, 0] * 50
+            y = tsne_results[i, 1] * 50
 
-            # 根據 K-Means 群組結果，將圖片分配不同的 CSS 類
             cluster = cluster_labels[i]
             f.write(f'<img src="{
                     name}" class="cluster-{cluster}" style="left:{x}px;top:{y}px;">\n')

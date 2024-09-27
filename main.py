@@ -1,30 +1,28 @@
 import torch
 import numpy as np
-from torchvision import models
+import logging
 from torchvision.transforms import v2
 from sklearn.manifold import TSNE
 
 # custom module
 import data_loader
 import tag
+import model_factory
 import kmeans
 
-# Define a function to load images from a directory
 
-
-# Function to extract features using VGG19 in PyTorch
 def extract_features(images, model):
     model.eval()
     features = []
     with torch.no_grad():
         for img in images:
             feature = model(img)
+
             # Flatten the features
             features.append(feature.cpu().numpy().reshape(-1))
     return np.array(features)
 
 
-# Function to apply t-SNE on the extracted features
 def apply_tsne(features):
     tsne = TSNE(n_components=2, random_state=42)
     tsne_results = tsne.fit_transform(features)
@@ -39,7 +37,6 @@ def apply_tsne(features):
     return tsne_results
 
 
-# Function to generate HTML to visualize the images
 def generate_html(image_names, tsne_results, output_file="output.html"):
     image_tags = tag.generate_image_tag()
 
@@ -70,8 +67,8 @@ def generate_html(image_names, tsne_results, output_file="output.html"):
         f.write('<div class="container">\n')
 
         for i, name in enumerate(image_names):
-            x = tsne_results[i, 0] * 50  # Scale the x-coordinate
-            y = tsne_results[i, 1] * 50  # Scale the y-coordinate
+            x = tsne_results[i, 0] * 100  # Scale the x-coordinate
+            y = tsne_results[i, 1] * 100  # Scale the y-coordinate
             # Get pictures' tags
             tags = image_tags[i][name[7:]]
             tag_str = f"Tags: {tags[0]}, {tags[1]}"
@@ -82,12 +79,14 @@ def generate_html(image_names, tsne_results, output_file="output.html"):
         f.write("</div></body></html>")
 
 
-# Main function to run the entire process
 def main(image_directory, output_html="output.html"):
-    # Load pre-trained VGG19 model from torchvision and remove the classifier layer
-    print("Loading VGG19 model...")
+    FORMAT = "%(asctime)s %(filename)s %(levelname)s:%(message)s"
+    logging.basicConfig(level=logging.DEBUG, format=FORMAT)
+
+    logging.info("Loading Vit Model...")
+
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    vgg19_model = models.vgg19().features.to(device)
+    model = model_factory.create("vit", device)
     # Define the image transform (resize, normalize)
     transform = v2.Compose(
         [
@@ -99,38 +98,36 @@ def main(image_directory, output_html="output.html"):
         ]
     )
 
-    # Step 1: Load all PNG images from the specified directory
-    print("Loading images...")
+    logging.info("Loading images...")
     images, image_names = data_loader.load_images_with_tag_from_directory(
         image_directory, transform, device
     )
 
-    # Step 2: Extract VGG19 features
-    print("Extracting features using VGG19...")
-    features = extract_features(images, vgg19_model)
+    logging.info("Extracting features using Vit...")
+    features = extract_features(images, model)
 
-    n_clusters = 12
-    print(f"Applying K-Means clustering with {n_clusters} clusters...")
-    cluster_labels = kmeans.apply_kmeans(features, n_clusters=n_clusters)
+    # n_clusters = 12
+    # logging.info(f"Applying K-Means clustering with {n_clusters} clusters...")
+    # cluster_labels = kmeans.apply_kmeans(features, n_clusters=n_clusters)
 
-    print("Applying t-SNE...")
+    logging.info("Applying t-SNE...")
     tsne_results = apply_tsne(features)
 
     # Step 4: Generate HTML to visualize the images
-    print("Generating HTML...")
-    # generate_html(image_names, tsne_results, output_file=output_html)
-    kmeans.generate_html_with_kmeans(
-        image_names,
-        tsne_results,
-        cluster_labels,
-        output_file=output_html,
-        img_dir=image_directory,
-    )
+    logging.info("Generating HTML...")
+    generate_html(image_names, tsne_results, output_file=output_html)
+    # kmeans.generate_html_with_kmeans(
+    #     image_names,
+    #     tsne_results,
+    #     cluster_labels,
+    #     output_file=output_html,
+    #     img_dir=image_directory,
+    # )
 
-    print(f"HTML visualization saved to {output_html}")
+    logging.info(f"HTML visualization saved to {output_html}")
 
 
 # Run the main function with the directory containing images
 if __name__ == "__main__":
     image_directory = "images"  # Replace with your directory
-    main(image_directory, output_html="kmeans_visualization.html")
+    main(image_directory, output_html="tsne_visualization.html")
