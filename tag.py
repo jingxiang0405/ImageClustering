@@ -27,5 +27,4 @@ def generate_image_tag():
             info[1] = tag_row_dict[info[1]]
             info.pop()
             infos.append({file_name: info})
-    # print(infos)
     return infos
