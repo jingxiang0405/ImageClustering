@@ -16,7 +16,7 @@ tag_row_dict = {
 
 
 def generate_image_tag():
-    infos = []
+    infos = {}
     for file_name in os.listdir(base_directory):
         file_path = os.path.join(base_directory, file_name)
 
@@ -26,5 +26,5 @@ def generate_image_tag():
             info[0] = tag_grid_dict[info[0]]
             info[1] = tag_row_dict[info[1]]
             info.pop()
-            infos.append({file_name: info})
+            infos[file_name] = info
     return infos

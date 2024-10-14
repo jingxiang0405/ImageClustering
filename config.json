@@ -3,8 +3,8 @@
         "enabled": true,
         "ncluster": 6
     },
+    "output_html": "output/vit_6cluster.html",
     "image_directory": "./images",
-    "output_html": "output/vit_kmeans_6.html",
     "model": "vit",
     "dimension_reduction": "tsne"
 }

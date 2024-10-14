@@ -1,0 +1,393 @@
+<html><head><title>Image t-SNE Visualization</title></head>
+<style>
+
+            .container { position: relative; }
+            img { position: absolute; width: 50px; height: 50px; }
+            .tooltip {
+                position: absolute;
+                background-color: #333;
+                color: #fff;
+                padding: 5px;
+                border-radius: 5px;
+                font-size: 12px;
+                visibility: hidden;
+                z-index: 10;
+            }
+            img:hover + .tooltip {
+                visibility: visible;
+            }
+
+            img:hover {
+                z-index: 100;
+                transform: scale(1.2);
+            }
+
+            input[type="checkbox"] {
+                transform: scale(1.5);
+                margin-left: 50px;
+                margin-top : 50px;
+            }
+            label {
+                font-size: 18px;
+            }
+
+            .form-inline label {
+                display: inline-block;
+                margin-right: 10px;
+            }
+
+            .form-inline input {
+                display: inline-block;
+                margin-right: 10px;
+            }
+
+        
+            .container { position: relative; }
+            img { position: absolute; width: 50px; height: 50px; border: 3px solid; }
+            .cluster-0 { border-color: red; }
+            .cluster-1 { border-color: blue; }
+            .cluster-2 { border-color: green; }
+            .cluster-3 { border-color: yellow; }
+            .cluster-4 { border-color: purple; }
+            .cluster-5 { border-color: black; }
+              </style>
+<body>
+
+        <div>
+            <form id="tag-form" class="form-inline">
+        
+                        <input type="checkbox" name="tag" id="barbie" value="barbie" onchange="filterImages()">
+
+                        <label for="barbie">barbie</label>
+
+
+                    
+                        <input type="checkbox" name="tag" id="cigarette" value="cigarette" onchange="filterImages()">
+
+                        <label for="cigarette">cigarette</label>
+
+
+                    <br>
+                        <input type="checkbox" name="tag" id="female" value="female" onchange="filterImages()">
+
+                        <label for="female">female</label>
+
+
+                    
+                        <input type="checkbox" name="tag" id="man" value="man" onchange="filterImages()">
+
+                        <label for="man">man</label>
+
+
+                    
+                        <input type="checkbox" name="tag" id="girl" value="girl" onchange="filterImages()">
+
+                        <label for="girl">girl</label>
+
+
+                    
+                        <input type="checkbox" name="tag" id="male" value="male" onchange="filterImages()">
+
+                        <label for="male">male</label>
+
+
+                    
+                        <input type="checkbox" name="tag" id="boy" value="boy" onchange="filterImages()">
+
+                        <label for="boy">boy</label>
+
+
+                    
+                        <input type="checkbox" name="tag" id="woman" value="woman" onchange="filterImages()">
+
+                        <label for="woman">woman</label>
+
+
+                    <br></form></div><hr>
+<div class="container">
+<img src=".././images/2_1_8.png" class="cluster-1" style="left:1846.0636138916016px;top:1349.6656894683838px;" data-tags="cigarette,girl">
+<div class="tooltip" style="left:1906.0636138916016px;top:1349.6656894683838px;">cigarette,girl</div>
+<img src=".././images/1_0_8.png" class="cluster-0" style="left:1001.5866279602051px;top:138.00036907196045px;" data-tags="barbie,boy">
+<div class="tooltip" style="left:1061.586627960205px;top:138.00036907196045px;">barbie,boy</div>
+<img src=".././images/1_0_9.png" class="cluster-1" style="left:1920.6669330596924px;top:281.73317313194275px;" data-tags="barbie,boy">
+<div class="tooltip" style="left:1980.6669330596924px;top:281.73317313194275px;">barbie,boy</div>
+<img src=".././images/2_1_9.png" class="cluster-1" style="left:1707.354497909546px;top:2136.572742462158px;" data-tags="cigarette,girl">
+<div class="tooltip" style="left:1767.354497909546px;top:2136.572742462158px;">cigarette,girl</div>
+<img src=".././images/2_3_9.png" class="cluster-1" style="left:1782.597255706787px;top:1993.3228969573975px;" data-tags="cigarette,female">
+<div class="tooltip" style="left:1842.597255706787px;top:1993.3228969573975px;">cigarette,female</div>
+<img src=".././images/1_2_9.png" class="cluster-1" style="left:1973.0046272277832px;top:185.07408499717712px;" data-tags="barbie,male">
+<div class="tooltip" style="left:2033.0046272277832px;top:185.07408499717712px;">barbie,male</div>
+<img src=".././images/1_2_8.png" class="cluster-0" style="left:497.0399022102356px;top:1062.219214439392px;" data-tags="barbie,male">
+<div class="tooltip" style="left:557.0399022102356px;top:1062.219214439392px;">barbie,male</div>
+<img src=".././images/2_3_8.png" class="cluster-1" style="left:1791.2704467773438px;top:1468.998670578003px;" data-tags="cigarette,female">
+<div class="tooltip" style="left:1851.2704467773438px;top:1468.998670578003px;">cigarette,female</div>
+<img src=".././images/2_5_9.png" class="cluster-1" style="left:1792.6121234893799px;top:1969.286870956421px;" data-tags="cigarette,woman">
+<div class="tooltip" style="left:1852.6121234893799px;top:1969.286870956421px;">cigarette,woman</div>
+<img src=".././images/1_4_9.png" class="cluster-1" style="left:1911.0852241516113px;top:139.36242163181305px;" data-tags="barbie,man">
+<div class="tooltip" style="left:1971.0852241516113px;top:139.36242163181305px;">barbie,man</div>
+<img src=".././images/1_4_8.png" class="cluster-1" style="left:1100.351357460022px;top:0.0px;" data-tags="barbie,man">
+<div class="tooltip" style="left:1160.351357460022px;top:0.0px;">barbie,man</div>
+<img src=".././images/2_5_8.png" class="cluster-1" style="left:1783.8024616241455px;top:1480.5301666259766px;" data-tags="cigarette,woman">
+<div class="tooltip" style="left:1843.8024616241455px;top:1480.5301666259766px;">cigarette,woman</div>
+<img src=".././images/2_2_9.png" class="cluster-1" style="left:1816.9193744659424px;top:2250.0px;" data-tags="cigarette,male">
+<div class="tooltip" style="left:1876.9193744659424px;top:2250.0px;">cigarette,male</div>
+<img src=".././images/1_3_9.png" class="cluster-1" style="left:1811.9619369506836px;top:491.56880378723145px;" data-tags="barbie,female">
+<div class="tooltip" style="left:1871.9619369506836px;top:491.56880378723145px;">barbie,female</div>
+<img src=".././images/1_3_8.png" class="cluster-0" style="left:547.6325154304504px;top:959.3154430389404px;" data-tags="barbie,female">
+<div class="tooltip" style="left:607.6325154304504px;top:959.3154430389404px;">barbie,female</div>
+<img src=".././images/2_2_8.png" class="cluster-1" style="left:1899.4108200073242px;top:1457.6841831207275px;" data-tags="cigarette,male">
+<div class="tooltip" style="left:1959.4108200073242px;top:1457.6841831207275px;">cigarette,male</div>
+<img src=".././images/2_0_8.png" class="cluster-1" style="left:1946.6156959533691px;top:1346.3131427764893px;" data-tags="cigarette,boy">
+<div class="tooltip" style="left:2006.6156959533691px;top:1346.3131427764893px;">cigarette,boy</div>
+<img src=".././images/1_1_8.png" class="cluster-1" style="left:1090.812063217163px;top:58.570875227451324px;" data-tags="barbie,girl">
+<div class="tooltip" style="left:1150.812063217163px;top:58.570875227451324px;">barbie,girl</div>
+<img src=".././images/1_1_9.png" class="cluster-1" style="left:1912.6327514648438px;top:76.86266899108887px;" data-tags="barbie,girl">
+<div class="tooltip" style="left:1972.6327514648438px;top:76.86266899108887px;">barbie,girl</div>
+<img src=".././images/2_0_9.png" class="cluster-1" style="left:1859.3230247497559px;top:2105.0528526306152px;" data-tags="cigarette,boy">
+<div class="tooltip" style="left:1919.3230247497559px;top:2105.0528526306152px;">cigarette,boy</div>
+<img src=".././images/2_4_9.png" class="cluster-1" style="left:1812.6142501831055px;top:2227.7844429016113px;" data-tags="cigarette,man">
+<div class="tooltip" style="left:1872.6142501831055px;top:2227.7844429016113px;">cigarette,man</div>
+<img src=".././images/1_5_9.png" class="cluster-1" style="left:1826.2822151184082px;top:446.0802912712097px;" data-tags="barbie,woman">
+<div class="tooltip" style="left:1886.2822151184082px;top:446.0802912712097px;">barbie,woman</div>
+<img src=".././images/1_5_8.png" class="cluster-0" style="left:551.749062538147px;top:860.782527923584px;" data-tags="barbie,woman">
+<div class="tooltip" style="left:611.749062538147px;top:860.782527923584px;">barbie,woman</div>
+<img src=".././images/2_4_8.png" class="cluster-1" style="left:1941.5981769561768px;top:1458.279275894165px;" data-tags="cigarette,man">
+<div class="tooltip" style="left:2001.5981769561768px;top:1458.279275894165px;">cigarette,man</div>
+<img src=".././images/2_4_6.png" class="cluster-0" style="left:292.8617835044861px;top:1291.032600402832px;" data-tags="cigarette,man">
+<div class="tooltip" style="left:352.8617835044861px;top:1291.032600402832px;">cigarette,man</div>
+<img src=".././images/1_5_6.png" class="cluster-1" style="left:1351.278018951416px;top:291.92140102386475px;" data-tags="barbie,woman">
+<div class="tooltip" style="left:1411.278018951416px;top:291.92140102386475px;">barbie,woman</div>
+<img src=".././images/2_2_0.png" class="cluster-0" style="left:583.8451623916626px;top:2004.458999633789px;" data-tags="cigarette,male">
+<div class="tooltip" style="left:643.8451623916626px;top:2004.458999633789px;">cigarette,male</div>
+<img src=".././images/1_3_0.png" class="cluster-0" style="left:1079.4734716415405px;top:1231.9026947021484px;" data-tags="barbie,female">
+<div class="tooltip" style="left:1139.4734716415405px;top:1231.9026947021484px;">barbie,female</div>
+<img src=".././images/2_0_2.png" class="cluster-0" style="left:183.63018035888672px;top:1036.8827819824219px;" data-tags="cigarette,boy">
+<div class="tooltip" style="left:243.63018035888672px;top:1036.8827819824219px;">cigarette,boy</div>
+<img src=".././images/1_1_2.png" class="cluster-0" style="left:704.4645309448242px;top:1236.3624572753906px;" data-tags="barbie,girl">
+<div class="tooltip" style="left:764.4645309448242px;top:1236.3624572753906px;">barbie,girl</div>
+<img src=".././images/1_1_3.png" class="cluster-1" style="left:1154.3638944625854px;top:629.5933485031128px;" data-tags="barbie,girl">
+<div class="tooltip" style="left:1214.3638944625854px;top:629.5933485031128px;">barbie,girl</div>
+<img src=".././images/2_0_3.png" class="cluster-0" style="left:201.68395042419434px;top:1711.2417697906494px;" data-tags="cigarette,boy">
+<div class="tooltip" style="left:261.68395042419434px;top:1711.2417697906494px;">cigarette,boy</div>
+<img src=".././images/1_3_1.png" class="cluster-1" style="left:1591.3626194000244px;top:1112.148928642273px;" data-tags="barbie,female">
+<div class="tooltip" style="left:1651.3626194000244px;top:1112.148928642273px;">barbie,female</div>
+<img src=".././images/2_2_1.png" class="cluster-1" style="left:2089.3452644348145px;top:997.67746925354px;" data-tags="cigarette,male">
+<div class="tooltip" style="left:2149.3452644348145px;top:997.67746925354px;">cigarette,male</div>
+<img src=".././images/1_5_7.png" class="cluster-1" style="left:1392.1099662780762px;top:1669.732904434204px;" data-tags="barbie,woman">
+<div class="tooltip" style="left:1452.1099662780762px;top:1669.732904434204px;">barbie,woman</div>
+<img src=".././images/2_4_7.png" class="cluster-1" style="left:2106.7710399627686px;top:2002.5977611541748px;" data-tags="cigarette,man">
+<div class="tooltip" style="left:2166.7710399627686px;top:2002.5977611541748px;">cigarette,man</div>
+<img src=".././images/2_4_5.png" class="cluster-0" style="left:337.9859447479248px;top:356.6805839538574px;" data-tags="cigarette,man">
+<div class="tooltip" style="left:397.9859447479248px;top:356.6805839538574px;">cigarette,man</div>
+<img src=".././images/1_5_5.png" class="cluster-0" style="left:831.469202041626px;top:735.7094049453735px;" data-tags="barbie,woman">
+<div class="tooltip" style="left:891.469202041626px;top:735.7094049453735px;">barbie,woman</div>
+<img src=".././images/2_2_3.png" class="cluster-0" style="left:270.3345537185669px;top:1675.8770942687988px;" data-tags="cigarette,male">
+<div class="tooltip" style="left:330.3345537185669px;top:1675.8770942687988px;">cigarette,male</div>
+<img src=".././images/1_3_3.png" class="cluster-0" style="left:1019.4276094436646px;top:460.3332996368408px;" data-tags="barbie,female">
+<div class="tooltip" style="left:1079.4276094436646px;top:460.3332996368408px;">barbie,female</div>
+<img src=".././images/2_0_1.png" class="cluster-1" style="left:1975.2698421478271px;top:898.3973264694214px;" data-tags="cigarette,boy">
+<div class="tooltip" style="left:2035.2698421478271px;top:898.3973264694214px;">cigarette,boy</div>
+<img src=".././images/1_1_1.png" class="cluster-0" style="left:1522.368335723877px;top:1062.2252225875854px;" data-tags="barbie,girl">
+<div class="tooltip" style="left:1582.368335723877px;top:1062.2252225875854px;">barbie,girl</div>
+<img src=".././images/1_1_0.png" class="cluster-1" style="left:1182.6433181762695px;top:1234.9461078643799px;" data-tags="barbie,girl">
+<div class="tooltip" style="left:1242.6433181762695px;top:1234.9461078643799px;">barbie,girl</div>
+<img src=".././images/2_0_0.png" class="cluster-0" style="left:451.6549587249756px;top:2033.860445022583px;" data-tags="cigarette,boy">
+<div class="tooltip" style="left:511.6549587249756px;top:2033.860445022583px;">cigarette,boy</div>
+<img src=".././images/1_3_2.png" class="cluster-0" style="left:617.1601295471191px;top:1227.8911113739014px;" data-tags="barbie,female">
+<div class="tooltip" style="left:677.1601295471191px;top:1227.8911113739014px;">barbie,female</div>
+<img src=".././images/2_2_2.png" class="cluster-1" style="left:150.8362591266632px;top:363.457453250885px;" data-tags="cigarette,male">
+<div class="tooltip" style="left:210.8362591266632px;top:363.457453250885px;">cigarette,male</div>
+<img src=".././images/1_5_4.png" class="cluster-0" style="left:1055.9303283691406px;top:900.8440732955933px;" data-tags="barbie,woman">
+<div class="tooltip" style="left:1115.9303283691406px;top:900.8440732955933px;">barbie,woman</div>
+<img src=".././images/2_4_4.png" class="cluster-1" style="left:1026.6705751419067px;top:1803.9198875427246px;" data-tags="cigarette,man">
+<div class="tooltip" style="left:1086.6705751419067px;top:1803.9198875427246px;">cigarette,man</div>
+<img src=".././images/2_4_0.png" class="cluster-0" style="left:626.1064052581787px;top:2021.1264610290527px;" data-tags="cigarette,man">
+<div class="tooltip" style="left:686.1064052581787px;top:2021.1264610290527px;">cigarette,man</div>
+<img src=".././images/1_5_0.png" class="cluster-1" style="left:1138.8901233673096px;top:1214.8471355438232px;" data-tags="barbie,woman">
+<div class="tooltip" style="left:1198.8901233673096px;top:1214.8471355438232px;">barbie,woman</div>
+<img src=".././images/2_2_6.png" class="cluster-0" style="left:222.10022807121277px;top:1369.8367595672607px;" data-tags="cigarette,male">
+<div class="tooltip" style="left:282.10022807121277px;top:1369.8367595672607px;">cigarette,male</div>
+<img src=".././images/1_3_6.png" class="cluster-0" style="left:1201.1813163757324px;top:423.36570024490356px;" data-tags="barbie,female">
+<div class="tooltip" style="left:1261.1813163757324px;top:423.36570024490356px;">barbie,female</div>
+<img src=".././images/2_0_4.png" class="cluster-0" style="left:905.2064895629883px;top:1395.312738418579px;" data-tags="cigarette,boy">
+<div class="tooltip" style="left:965.2064895629883px;top:1395.312738418579px;">cigarette,boy</div>
+<img src=".././images/1_1_4.png" class="cluster-1" style="left:1426.4804363250732px;top:668.1469917297363px;" data-tags="barbie,girl">
+<div class="tooltip" style="left:1486.4804363250732px;top:668.1469917297363px;">barbie,girl</div>
+<img src=".././images/1_1_5.png" class="cluster-0" style="left:866.6640758514404px;top:673.3139276504517px;" data-tags="barbie,girl">
+<div class="tooltip" style="left:926.6640758514404px;top:673.3139276504517px;">barbie,girl</div>
+<img src=".././images/2_0_5.png" class="cluster-0" style="left:345.80150842666626px;top:625.6937742233276px;" data-tags="cigarette,boy">
+<div class="tooltip" style="left:405.80150842666626px;top:625.6937742233276px;">cigarette,boy</div>
+<img src=".././images/1_3_7.png" class="cluster-1" style="left:1426.3196468353271px;top:1769.439697265625px;" data-tags="barbie,female">
+<div class="tooltip" style="left:1486.3196468353271px;top:1769.439697265625px;">barbie,female</div>
+<img src=".././images/2_2_7.png" class="cluster-1" style="left:2164.6187782287598px;top:1948.9019393920898px;" data-tags="cigarette,male">
+<div class="tooltip" style="left:2224.6187782287598px;top:1948.9019393920898px;">cigarette,male</div>
+<img src=".././images/1_5_1.png" class="cluster-0" style="left:1518.4448719024658px;top:1135.0046396255493px;" data-tags="barbie,woman">
+<div class="tooltip" style="left:1578.4448719024658px;top:1135.0046396255493px;">barbie,woman</div>
+<img src=".././images/2_4_1.png" class="cluster-1" style="left:2129.724168777466px;top:1033.0912113189697px;" data-tags="cigarette,man">
+<div class="tooltip" style="left:2189.724168777466px;top:1033.0912113189697px;">cigarette,man</div>
+<img src=".././images/2_4_3.png" class="cluster-0" style="left:246.95606231689453px;top:1735.5993747711182px;" data-tags="cigarette,man">
+<div class="tooltip" style="left:306.95606231689453px;top:1735.5993747711182px;">cigarette,man</div>
+<img src=".././images/1_5_3.png" class="cluster-0" style="left:1040.954089164734px;top:475.7286071777344px;" data-tags="barbie,woman">
+<div class="tooltip" style="left:1100.954089164734px;top:475.7286071777344px;">barbie,woman</div>
+<img src=".././images/2_2_5.png" class="cluster-0" style="left:347.0234155654907px;top:761.2736463546753px;" data-tags="cigarette,male">
+<div class="tooltip" style="left:407.0234155654907px;top:761.2736463546753px;">cigarette,male</div>
+<img src=".././images/1_3_5.png" class="cluster-0" style="left:767.5538063049316px;top:802.3766040802002px;" data-tags="barbie,female">
+<div class="tooltip" style="left:827.5538063049316px;top:802.3766040802002px;">barbie,female</div>
+<img src=".././images/2_0_7.png" class="cluster-1" style="left:2250.0px;top:1885.4364395141602px;" data-tags="cigarette,boy">
+<div class="tooltip" style="left:2310.0px;top:1885.4364395141602px;">cigarette,boy</div>
+<img src=".././images/1_1_7.png" class="cluster-1" style="left:1332.3705196380615px;top:1581.8378448486328px;" data-tags="barbie,girl">
+<div class="tooltip" style="left:1392.3705196380615px;top:1581.8378448486328px;">barbie,girl</div>
+<img src=".././images/1_1_6.png" class="cluster-1" style="left:1350.8567333221436px;top:236.72550916671753px;" data-tags="barbie,girl">
+<div class="tooltip" style="left:1410.8567333221436px;top:236.72550916671753px;">barbie,girl</div>
+<img src=".././images/2_0_6.png" class="cluster-0" style="left:289.25172686576843px;top:1207.3498249053955px;" data-tags="cigarette,boy">
+<div class="tooltip" style="left:349.25172686576843px;top:1207.3498249053955px;">cigarette,boy</div>
+<img src=".././images/1_3_4.png" class="cluster-0" style="left:940.2915716171265px;top:1020.7540512084961px;" data-tags="barbie,female">
+<div class="tooltip" style="left:1000.2915716171265px;top:1020.7540512084961px;">barbie,female</div>
+<img src=".././images/2_2_4.png" class="cluster-0" style="left:914.6181106567383px;top:1556.8735599517822px;" data-tags="cigarette,male">
+<div class="tooltip" style="left:974.6181106567383px;top:1556.8735599517822px;">cigarette,male</div>
+<img src=".././images/1_5_2.png" class="cluster-0" style="left:669.1240310668945px;top:1273.357915878296px;" data-tags="barbie,woman">
+<div class="tooltip" style="left:729.1240310668945px;top:1273.357915878296px;">barbie,woman</div>
+<img src=".././images/2_4_2.png" class="cluster-0" style="left:115.22544622421265px;top:461.7115259170532px;" data-tags="cigarette,man">
+<div class="tooltip" style="left:175.22544622421265px;top:461.7115259170532px;">cigarette,man</div>
+<img src=".././images/2_1_1.png" class="cluster-1" style="left:2177.9326915740967px;top:874.1596698760986px;" data-tags="cigarette,girl">
+<div class="tooltip" style="left:2237.9326915740967px;top:874.1596698760986px;">cigarette,girl</div>
+<img src=".././images/1_0_1.png" class="cluster-1" style="left:1743.0251598358154px;top:915.2013301849365px;" data-tags="barbie,boy">
+<div class="tooltip" style="left:1803.0251598358154px;top:915.2013301849365px;">barbie,boy</div>
+<img src=".././images/2_3_3.png" class="cluster-0" style="left:1286.9336128234863px;top:2145.3051567077637px;" data-tags="cigarette,female">
+<div class="tooltip" style="left:1346.9336128234863px;top:2145.3051567077637px;">cigarette,female</div>
+<img src=".././images/1_2_3.png" class="cluster-1" style="left:1251.5182971954346px;top:754.2999744415283px;" data-tags="barbie,male">
+<div class="tooltip" style="left:1311.5182971954346px;top:754.2999744415283px;">barbie,male</div>
+<img src=".././images/2_5_5.png" class="cluster-1" style="left:391.84051752090454px;top:441.5628433227539px;" data-tags="cigarette,woman">
+<div class="tooltip" style="left:451.84051752090454px;top:441.5628433227539px;">cigarette,woman</div>
+<img src=".././images/1_4_5.png" class="cluster-0" style="left:700.6987810134888px;top:709.4671726226807px;" data-tags="barbie,man">
+<div class="tooltip" style="left:760.6987810134888px;top:709.4671726226807px;">barbie,man</div>
+<img src=".././images/1_4_4.png" class="cluster-1" style="left:1501.098346710205px;top:628.2181978225708px;" data-tags="barbie,man">
+<div class="tooltip" style="left:1561.098346710205px;top:628.2181978225708px;">barbie,man</div>
+<img src=".././images/2_5_4.png" class="cluster-1" style="left:1017.4204587936401px;top:1663.0385398864746px;" data-tags="cigarette,woman">
+<div class="tooltip" style="left:1077.4204587936401px;top:1663.0385398864746px;">cigarette,woman</div>
+<img src=".././images/1_2_2.png" class="cluster-0" style="left:583.7069034576416px;top:1404.600477218628px;" data-tags="barbie,male">
+<div class="tooltip" style="left:643.7069034576416px;top:1404.600477218628px;">barbie,male</div>
+<img src=".././images/2_3_2.png" class="cluster-1" style="left:0.0px;top:552.6519298553467px;" data-tags="cigarette,female">
+<div class="tooltip" style="left:60.0px;top:552.6519298553467px;">cigarette,female</div>
+<img src=".././images/1_0_0.png" class="cluster-1" style="left:1248.0601787567139px;top:1038.487958908081px;" data-tags="barbie,boy">
+<div class="tooltip" style="left:1308.0601787567139px;top:1038.487958908081px;">barbie,boy</div>
+<img src=".././images/2_1_0.png" class="cluster-0" style="left:572.7375984191895px;top:1798.7555980682373px;" data-tags="cigarette,girl">
+<div class="tooltip" style="left:632.7375984191895px;top:1798.7555980682373px;">cigarette,girl</div>
+<img src=".././images/2_1_2.png" class="cluster-0" style="left:91.67685806751251px;top:682.344388961792px;" data-tags="cigarette,girl">
+<div class="tooltip" style="left:151.6768580675125px;top:682.344388961792px;">cigarette,girl</div>
+<img src=".././images/1_0_2.png" class="cluster-0" style="left:640.5442714691162px;top:1429.5990943908691px;" data-tags="barbie,boy">
+<div class="tooltip" style="left:700.5442714691162px;top:1429.5990943908691px;">barbie,boy</div>
+<img src=".././images/2_3_0.png" class="cluster-0" style="left:515.7063961029053px;top:1832.5349807739258px;" data-tags="cigarette,female">
+<div class="tooltip" style="left:575.7063961029053px;top:1832.5349807739258px;">cigarette,female</div>
+<img src=".././images/1_2_0.png" class="cluster-0" style="left:476.8362879753113px;top:1475.5785942077637px;" data-tags="barbie,male">
+<div class="tooltip" style="left:536.8362879753113px;top:1475.5785942077637px;">barbie,male</div>
+<img src=".././images/2_5_6.png" class="cluster-1" style="left:1042.8886413574219px;top:2179.288959503174px;" data-tags="cigarette,woman">
+<div class="tooltip" style="left:1102.8886413574219px;top:2179.288959503174px;">cigarette,woman</div>
+<img src=".././images/1_4_6.png" class="cluster-1" style="left:1448.7423419952393px;top:312.0165824890137px;" data-tags="barbie,man">
+<div class="tooltip" style="left:1508.7423419952393px;top:312.0165824890137px;">barbie,man</div>
+<img src=".././images/1_4_7.png" class="cluster-1" style="left:1390.4085159301758px;top:1563.7866497039795px;" data-tags="barbie,man">
+<div class="tooltip" style="left:1450.4085159301758px;top:1563.7866497039795px;">barbie,man</div>
+<img src=".././images/2_5_7.png" class="cluster-1" style="left:2106.3079833984375px;top:1779.563856124878px;" data-tags="cigarette,woman">
+<div class="tooltip" style="left:2166.3079833984375px;top:1779.563856124878px;">cigarette,woman</div>
+<img src=".././images/1_2_1.png" class="cluster-1" style="left:1635.8648300170898px;top:1004.6016454696655px;" data-tags="barbie,male">
+<div class="tooltip" style="left:1695.8648300170898px;top:1004.6016454696655px;">barbie,male</div>
+<img src=".././images/2_3_1.png" class="cluster-1" style="left:2056.7389011383057px;top:862.1633291244507px;" data-tags="cigarette,female">
+<div class="tooltip" style="left:2116.7389011383057px;top:862.1633291244507px;">cigarette,female</div>
+<img src=".././images/1_0_3.png" class="cluster-1" style="left:1192.6266431808472px;top:720.5500602722168px;" data-tags="barbie,boy">
+<div class="tooltip" style="left:1252.6266431808472px;top:720.5500602722168px;">barbie,boy</div>
+<img src=".././images/2_1_3.png" class="cluster-0" style="left:1135.0924730300903px;top:323.1324791908264px;" data-tags="cigarette,girl">
+<div class="tooltip" style="left:1195.0924730300903px;top:323.1324791908264px;">cigarette,girl</div>
+<img src=".././images/2_1_7.png" class="cluster-1" style="left:2081.417942047119px;top:1883.219575881958px;" data-tags="cigarette,girl">
+<div class="tooltip" style="left:2141.417942047119px;top:1883.219575881958px;">cigarette,girl</div>
+<img src=".././images/1_0_7.png" class="cluster-1" style="left:1504.0400505065918px;top:1596.7573642730713px;" data-tags="barbie,boy">
+<div class="tooltip" style="left:1564.0400505065918px;top:1596.7573642730713px;">barbie,boy</div>
+<img src=".././images/2_3_5.png" class="cluster-0" style="left:380.0730228424072px;top:488.8229012489319px;" data-tags="cigarette,female">
+<div class="tooltip" style="left:440.0730228424072px;top:488.8229012489319px;">cigarette,female</div>
+<img src=".././images/1_2_5.png" class="cluster-0" style="left:701.5758275985718px;top:888.0013704299927px;" data-tags="barbie,male">
+<div class="tooltip" style="left:761.5758275985718px;top:888.0013704299927px;">barbie,male</div>
+<img src=".././images/2_5_3.png" class="cluster-1" style="left:1296.1255073547363px;top:2142.6838874816895px;" data-tags="cigarette,woman">
+<div class="tooltip" style="left:1356.1255073547363px;top:2142.6838874816895px;">cigarette,woman</div>
+<img src=".././images/1_4_3.png" class="cluster-1" style="left:1270.4049110412598px;top:753.045129776001px;" data-tags="barbie,man">
+<div class="tooltip" style="left:1330.4049110412598px;top:753.045129776001px;">barbie,man</div>
+<img src=".././images/1_4_2.png" class="cluster-0" style="left:578.5955429077148px;top:1281.4078330993652px;" data-tags="barbie,man">
+<div class="tooltip" style="left:638.5955429077148px;top:1281.4078330993652px;">barbie,man</div>
+<img src=".././images/2_5_2.png" class="cluster-1" style="left:7.057490944862366px;top:551.2054324150085px;" data-tags="cigarette,woman">
+<div class="tooltip" style="left:67.05749094486237px;top:551.2054324150085px;">cigarette,woman</div>
+<img src=".././images/1_2_4.png" class="cluster-0" style="left:980.1961183547974px;top:961.5315914154053px;" data-tags="barbie,male">
+<div class="tooltip" style="left:1040.1961183547974px;top:961.5315914154053px;">barbie,male</div>
+<img src=".././images/2_3_4.png" class="cluster-0" style="left:968.9250469207764px;top:1661.9085788726807px;" data-tags="cigarette,female">
+<div class="tooltip" style="left:1028.9250469207764px;top:1661.9085788726807px;">cigarette,female</div>
+<img src=".././images/1_0_6.png" class="cluster-1" style="left:1393.7174320220947px;top:87.37701773643494px;" data-tags="barbie,boy">
+<div class="tooltip" style="left:1453.7174320220947px;top:87.37701773643494px;">barbie,boy</div>
+<img src=".././images/2_1_6.png" class="cluster-0" style="left:361.0758662223816px;top:1486.444902420044px;" data-tags="cigarette,girl">
+<div class="tooltip" style="left:421.0758662223816px;top:1486.444902420044px;">cigarette,girl</div>
+<img src=".././images/2_1_4.png" class="cluster-0" style="left:1026.7644882202148px;top:1628.6466121673584px;" data-tags="cigarette,girl">
+<div class="tooltip" style="left:1086.7644882202148px;top:1628.6466121673584px;">cigarette,girl</div>
+<img src=".././images/1_0_4.png" class="cluster-1" style="left:1328.8872241973877px;top:546.8234539031982px;" data-tags="barbie,boy">
+<div class="tooltip" style="left:1388.8872241973877px;top:546.8234539031982px;">barbie,boy</div>
+<img src=".././images/2_3_6.png" class="cluster-0" style="left:1017.8559064865112px;top:2179.886484146118px;" data-tags="cigarette,female">
+<div class="tooltip" style="left:1077.8559064865112px;top:2179.886484146118px;">cigarette,female</div>
+<img src=".././images/1_2_6.png" class="cluster-1" style="left:1438.9882564544678px;top:205.16116619110107px;" data-tags="barbie,male">
+<div class="tooltip" style="left:1498.9882564544678px;top:205.16116619110107px;">barbie,male</div>
+<img src=".././images/2_5_0.png" class="cluster-0" style="left:548.8622903823853px;top:1849.1689682006836px;" data-tags="cigarette,woman">
+<div class="tooltip" style="left:608.8622903823853px;top:1849.1689682006836px;">cigarette,woman</div>
+<img src=".././images/1_4_0.png" class="cluster-1" style="left:1299.7833251953125px;top:1023.0053186416626px;" data-tags="barbie,man">
+<div class="tooltip" style="left:1359.7833251953125px;top:1023.0053186416626px;">barbie,man</div>
+<img src=".././images/1_4_1.png" class="cluster-1" style="left:1676.8022060394287px;top:1004.1247129440308px;" data-tags="barbie,man">
+<div class="tooltip" style="left:1736.8022060394287px;top:1004.1247129440308px;">barbie,man</div>
+<img src=".././images/2_5_1.png" class="cluster-1" style="left:2131.6771030426025px;top:854.0905952453613px;" data-tags="cigarette,woman">
+<div class="tooltip" style="left:2191.6771030426025px;top:854.0905952453613px;">cigarette,woman</div>
+<img src=".././images/1_2_7.png" class="cluster-1" style="left:1509.6094608306885px;top:1620.9550380706787px;" data-tags="barbie,male">
+<div class="tooltip" style="left:1569.6094608306885px;top:1620.9550380706787px;">barbie,male</div>
+<img src=".././images/2_3_7.png" class="cluster-1" style="left:2117.6772594451904px;top:1751.982307434082px;" data-tags="cigarette,female">
+<div class="tooltip" style="left:2177.6772594451904px;top:1751.982307434082px;">cigarette,female</div>
+<img src=".././images/1_0_5.png" class="cluster-0" style="left:878.4235954284668px;top:824.4574785232544px;" data-tags="barbie,boy">
+<div class="tooltip" style="left:938.4235954284668px;top:824.4574785232544px;">barbie,boy</div>
+<img src=".././images/2_1_5.png" class="cluster-0" style="left:715.3355598449707px;top:415.4242157936096px;" data-tags="cigarette,girl">
+<div class="tooltip" style="left:775.3355598449707px;top:415.4242157936096px;">cigarette,girl</div>
+</div>
+        <script>
+          let checkSubset = (parentArray, subsetArray) => {
+            return subsetArray.every((el) => {
+                return parentArray.includes(el)
+            })
+        }
+        function filterImages() {
+
+            let checkedTags = Array.from(document.querySelectorAll('input[name="tag"]:checked'))
+                .map(cb => cb.value);
+
+            let flag;
+
+            let images = Array.from(document.getElementsByTagName('img'));
+            let tags;
+            let show;
+            images.forEach((img) => {
+                tags = img.getAttribute('data-tags').split(",");
+                flag = checkedTags.length < tags.length;
+
+                if (flag) {
+                    console.log(flag)
+                    let count = 0;
+                    checkedTags.forEach((reg) => {
+
+                        tags.forEach((tag) => {
+                            if (tag == reg) {
+                                count++;
+                            }
+                        })
+
+                    })
+                    show = (count == checkedTags.length);
+                }
+                else {
+
+                    show = checkSubset(checkedTags, tags);
+
+                }
+                img.style.display = show || checkedTags.length === 0 ? 'block' : 'none';
+            });
+
+        }         
+        </script>
+        </body></html>

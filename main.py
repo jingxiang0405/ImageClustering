@@ -20,9 +20,10 @@ if kmeans_enabled:
     kmeans_nclusters = config["kmeans"].get("ncluster", 5)
 
 image_directory = config.get("image_directory", "./image")
-output_html = config.get("output_html", "ImageClustering.html")
 model_name = config.get("model", "vgg19")
+output_html = config.get("output_html", f"output/{model_name}.html")
 dimension_reduction = config.get("dimension_reduction", "tsne")
+image_directory = config.get("image_directory", "./images")
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s %(filename)s %(levelname)s:%(message)s"
@@ -32,10 +33,10 @@ logging.basicConfig(
 def main():
     # Logging
 
-    logging.info("Loading Vit Model...")
+    logging.info("Loading Model...")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    model = model_factory.create("vit", device)
+    model = model_factory.create(model_name, device)
     # Define the image transform (resize, normalize)
     transform = v2.Compose(
         [
@@ -47,12 +48,11 @@ def main():
     )
 
     logging.info("Loading images...")
-    image_directory = config.get("image_directory", "./images")
     images, image_names = image_loader.load_images_with_tag_from_directory(
         image_directory, transform, device
     )
 
-    logging.info("Extracting features using Vit...")
+    logging.info("Extracting features...")
     features = model_factory.extract_features(images, model)
 
     logging.info("Applying dimension reduction...")
